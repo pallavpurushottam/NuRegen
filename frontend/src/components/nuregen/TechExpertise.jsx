@@ -50,7 +50,7 @@ export default function TechExpertise() {
 
                 <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {CARDS.map((c, i) => (
-                        <div key={c.title} className={`nr-flip nr-flip-static reveal delay-${i + 1}`} tabIndex={0}>
+                        <div key={c.title} className={`nr-flip reveal delay-${i + 1}`} tabIndex={0}>
                             <div className="flex items-center justify-between">
                                 <div className="font-serif-display text-3xl" style={{ color: 'var(--nr-navy)' }} aria-hidden>
                                     {c.icon}
@@ -65,9 +65,10 @@ export default function TechExpertise() {
                             >
                                 {c.title}
                             </h3>
-                            <p className="nr-body mt-3" style={{ fontSize: '13.5px', lineHeight: 1.6 }}>
-                                {c.detail}
-                            </p>
+                            <div className="nr-flip-detail">
+                                <p className="nr-body" style={{ fontSize: '13.5px', lineHeight: 1.6 }}>{c.detail}</p>
+                            </div>
+                            <span className="nr-flip-arrow" aria-hidden>+</span>
                         </div>
                     ))}
                 </div>

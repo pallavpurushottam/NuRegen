@@ -181,24 +181,30 @@ em { font-style: italic; font-weight: 700; }
 .nr-nav-link:hover::after { width: 100%; }
 
 .nr-logo-chip {
-    background: var(--nr-paper);
-    border-radius: 12px;
-    padding: 6px 10px;
-    box-shadow: 0 4px 14px -10px rgba(15, 27, 46, 0.45);
+    background: transparent;
+    padding: 0;
     display: inline-flex; align-items: center; justify-content: center;
 }
 
-/* Icon-only crop of the uploaded lockup (top ~55% is the infinity+leaf mark) */
+/* Icon-only crop of the uploaded lockup.
+   Source: 764x556 RGBA. Icon occupies rows 14-402 (top 72%). */
 .nr-logo-icon-wrap {
-    width: 44px; height: 28px;
-    overflow: hidden;
-    position: relative;
+    width: 68px;
+    height: 36px;
+    background-image: var(--nr-logo-url);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 68px auto;
     display: inline-block;
+    transition: filter 300ms ease;
+    /* Soft white halo around the shape so the navy icon reads over the dark hero */
+    filter:
+        drop-shadow(0 0 8px rgba(252, 251, 247, 0.55))
+        drop-shadow(0 2px 6px rgba(15, 27, 46, 0.35));
 }
-.nr-logo-icon-wrap img {
-    position: absolute;
-    top: 0; left: 50%; transform: translateX(-50%);
-    width: 52px; height: auto;
+/* Once nav is over the light page bg, drop the halo — original colors on paper */
+.nr-nav.scrolled .nr-logo-icon-wrap {
+    filter: drop-shadow(0 1px 3px rgba(15, 27, 46, 0.18));
 }
 
 /* CTA button */
@@ -297,7 +303,7 @@ em { font-style: italic; font-weight: 700; }
     background: linear-gradient(90deg, var(--nr-rust) 0%, var(--nr-rust-soft) 40%, var(--nr-leaf) 100%);
 }
 
-/* Solutions / Value cards — always-visible detail (professional presentation) */
+/* Solutions / Value / Tech cards — hover to reveal detail (no visible label) */
 .nr-flip {
     position: relative;
     background:
@@ -309,13 +315,51 @@ em { font-style: italic; font-weight: 700; }
     min-height: 240px;
     overflow: hidden;
     transition: transform 380ms cubic-bezier(0.2,0.7,0.2,1), box-shadow 380ms ease, border-color 300ms ease;
+    cursor: pointer;
 }
-.nr-flip:hover {
+.nr-flip:hover, .nr-flip:focus-visible {
     transform: translateY(-6px);
     box-shadow: 0 30px 60px -32px rgba(31, 56, 100, 0.35);
-    border-color: rgba(31, 56, 100, 0.22);
+    border-color: rgba(31, 56, 100, 0.28);
 }
-.nr-flip-static { min-height: 220px; }
+.nr-flip .nr-flip-detail {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 500ms cubic-bezier(0.2,0.7,0.2,1), opacity 400ms ease, margin-top 400ms ease;
+}
+.nr-flip:hover .nr-flip-detail,
+.nr-flip:focus-visible .nr-flip-detail,
+.nr-flip.open .nr-flip-detail {
+    max-height: 260px;
+    opacity: 1;
+    margin-top: 14px;
+}
+/* Subtle pulse chevron in the corner as an affordance instead of text label */
+.nr-flip-arrow {
+    position: absolute;
+    right: 20px; bottom: 18px;
+    width: 32px; height: 32px;
+    border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(196, 98, 45, 0.10);
+    color: var(--nr-rust);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    transition: background-color 300ms ease, transform 300ms ease;
+    pointer-events: none;
+}
+.nr-flip:hover .nr-flip-arrow {
+    background: var(--nr-rust);
+    color: var(--nr-paper);
+    transform: rotate(-45deg);
+}
+/* On touch devices, tapping toggles .open (JS) — always show detail if no hover */
+@media (hover: none) {
+    .nr-flip .nr-flip-detail { max-height: 260px; opacity: 1; margin-top: 14px; }
+    .nr-flip-arrow { display: none; }
+}
 
 /* News cards */
 .nr-news-card {

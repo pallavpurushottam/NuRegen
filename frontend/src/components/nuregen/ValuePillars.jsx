@@ -25,7 +25,7 @@ export default function ValuePillars() {
 
                 <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {PILLARS.map((p, i) => (
-                        <div key={p.title} className={`nr-flip nr-flip-static reveal delay-${(i % 5) + 1}`} tabIndex={0} style={p.accent === 'leaf' ? { borderColor: 'rgba(92,166,50,0.35)' } : undefined}>
+                        <div key={p.title} className={`nr-flip reveal delay-${(i % 5) + 1}`} tabIndex={0} style={p.accent === 'leaf' ? { borderColor: 'rgba(92,166,50,0.35)' } : undefined}>
                             <div className="flex items-center justify-between">
                                 <div
                                     className="font-serif-display text-3xl"
@@ -44,9 +44,10 @@ export default function ValuePillars() {
                             >
                                 {p.title}
                             </h3>
-                            <p className="nr-body mt-3" style={{ fontSize: '13.5px', lineHeight: 1.6 }}>
-                                {p.detail}
-                            </p>
+                            <div className="nr-flip-detail">
+                                <p className="nr-body" style={{ fontSize: '13.5px', lineHeight: 1.6 }}>{p.detail}</p>
+                            </div>
+                            <span className="nr-flip-arrow" aria-hidden>+</span>
                         </div>
                     ))}
                 </div>

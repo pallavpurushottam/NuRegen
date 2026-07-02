@@ -1,0 +1,42 @@
+{
+  "summary": "Iteration 2 frontend regression for NuRegen. All 10 requested items verified PASSING on both desktop (1440x900) and mobile (390x844).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_items": {
+    "nav_logo_icon_only_desktop": "PASS — data-testid=nav-logo has empty inner text (no 'NuRegen' wordmark). Icon rendered via .nr-logo-icon-wrap (68x36) with backgroundImage url, backgroundSize=68px, backgroundPosition='50% 0%' (center top). Wordmark is cropped OUT.",
+    "nav_logo_icon_only_mobile": "PASS — same values at 390x844 viewport; icon-only, no wordmark.",
+    "no_white_chip": "PASS — .nr-logo-chip element does NOT exist in DOM at all (fully removed), so no white background chip is possible.",
+    "hover_reveal_solution": "PASS — All 4 #solution .nr-flip cards: detail before hover opacity=0/maxHeight=0px/height=0. After hover: opacity=1, maxHeight=260px, height≈65-86px. (Initial run showed a false-negative on card #1 due to reveal animation still in transition; re-tested with proper settle wait -> confirmed working.)",
+    "hover_reveal_tech": "PASS — opacity 0→1, height 0→107.97px.",
+    "hover_reveal_pillars": "PASS — opacity 0→1, height 0→43.19px.",
+    "no_hover_to_expand_text": "PASS — 'hover to expand' string not found anywhere in document.body.innerText.",
+    "plus_arrow_present": "PASS — 14 .nr-flip cards, 14 .nr-flip-arrow with textContent '+'.",
+    "card_lift_transform": "PASS — .nr-flip transform on hover matrix(...,0,-6) i.e. translateY(-6px). Confirmed on all 3 sections.",
+    "marquee_autoscroll": "PASS — .marquee-track transform x delta ≈ -50px over 2s (matrix -237→-287).",
+    "contact_form_api": "PASS — POST /api/contact returned 200, forward_to='info@nuregen.earth', persisted with UUID id.",
+    "carbon_clock_increments": "PASS — data-testid=carbon-clock-number changed 1,428,922,081 → 1,428,923,302 over 2.5s."
+  },
+  "test_report_links": [
+    "/app/tests/nuregen_ui_test.py",
+    "/app/tests/nuregen_solution_hover.py"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Minor: The initial hover test flakiness on the first Solution card was due to CSS reveal transition still in flight (transform transitioning from 6.14px to 0). Only surfaces in fast automated tests, not real users. No fix needed.",
+    "Card `.nr-flip` uses cursor:pointer but has no click/keyboard toggle for open state on desktop — relies purely on :hover/:focus-visible. tabIndex={0} is set so keyboard focus works. Acceptable."
+  ],
+  "updated_files": [
+    "/app/tests/nuregen_ui_test.py (new)",
+    "/app/tests/nuregen_solution_hover.py (new)"
+  ],
+  "success_rate": {"backend": "100% (contact endpoint only, per scope)", "frontend": "100%"},
+  "test_credentials": "N/A — no auth on this app",
+  "seed_data_creation": "One TEST_User contact record inserted via /api/contact (id in test log).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Nav logo, hover-expand cards, marquee, contact API and carbon clock all pass. When automating hover on `.reveal` cards, wait ~1500ms after scroll_into_view_if_needed to let the 700ms reveal transition settle, otherwise the hover transform can appear to 'not apply' on the first tested card."
+}

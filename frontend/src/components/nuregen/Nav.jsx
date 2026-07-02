@@ -39,11 +39,12 @@ export default function Nav() {
                     className="flex items-center gap-3"
                     aria-label="NuRegen — home"
                 >
-                    <span className="nr-logo-chip">
-                        <span className="nr-logo-icon-wrap">
-                            <img src={LOGO_LOCKUP} alt="NuRegen mark" />
-                        </span>
-                    </span>
+                    <span
+                        className="nr-logo-icon-wrap"
+                        role="img"
+                        aria-label="NuRegen"
+                        style={{ '--nr-logo-url': `url(${LOGO_LOCKUP})` }}
+                    />
                 </button>
 
                 <div className="hidden lg:flex items-center gap-8">

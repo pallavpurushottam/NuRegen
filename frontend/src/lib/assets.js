@@ -6,17 +6,17 @@ export const PARTNERS = [
     {
         name: 'MittiLabs',
         src: 'https://customer-assets.emergentagent.com/job_907ce83b-29c1-4426-b090-760863d52748/artifacts/o3ywmi5i_MittiLabs__Logo.jpg',
-        blend: 'multiply',
+        chip: 'light',
     },
     {
         name: 'String Bio',
         src: 'https://customer-assets.emergentagent.com/job_907ce83b-29c1-4426-b090-760863d52748/artifacts/9x63w492_String%20bio.png',
-        blend: 'lighten',
+        chip: 'dark',
     },
     {
         name: 'AgriCapture',
         src: 'https://customer-assets.emergentagent.com/job_907ce83b-29c1-4426-b090-760863d52748/artifacts/3gybuxze_AC%20L.png',
-        blend: 'multiply',
+        chip: 'light',
     },
 ];
 

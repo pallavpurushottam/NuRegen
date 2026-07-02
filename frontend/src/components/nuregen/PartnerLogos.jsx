@@ -2,8 +2,8 @@ import { SECTIONS } from '@/constants/testIds';
 import { PARTNERS } from '@/lib/assets';
 
 export default function PartnerLogos() {
-    // Duplicate list for seamless marquee loop
-    const items = [...PARTNERS, ...PARTNERS, ...PARTNERS];
+    // 2× the list so translateX(-50%) creates a seamless loop.
+    const items = [...PARTNERS, ...PARTNERS];
     return (
         <section
             id="partners"
@@ -23,15 +23,18 @@ export default function PartnerLogos() {
                     </p>
                 </div>
 
-                <div className="mt-12 nr-marquee reveal delay-1">
+                <div className="mt-12 nr-marquee reveal delay-1" aria-label="Partner logos">
                     <div className="nr-marquee-track">
                         {items.map((p, i) => (
-                            <div key={i} className="flex items-center justify-center min-w-[170px]">
+                            <div
+                                key={i}
+                                className={`nr-partner-chip nr-partner-chip-${p.chip}`}
+                                title={p.name}
+                            >
                                 <img
                                     src={p.src}
                                     alt={p.name}
-                                    className={`nr-partner-logo ${p.blend === 'lighten' ? 'nr-blend-lighten' : 'nr-blend-multiply'}`}
-                                    style={{ maxWidth: 200 }}
+                                    className="nr-partner-logo"
                                 />
                             </div>
                         ))}

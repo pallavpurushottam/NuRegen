@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -58,6 +58,9 @@ body {
     overflow-x: hidden;
 }
 
+/* Emphasis words — subtle italic on Manrope reads clean & professional */
+em { font-style: italic; font-weight: 700; }
+
 /* Serene light background with subtle navy/green gradient hints */
 .nr-page-bg {
     background-color: var(--nr-paper);
@@ -69,7 +72,7 @@ body {
 }
 
 /* Typography utility classes */
-.font-serif-display { font-family: 'Fraunces', 'Playfair Display', Georgia, serif; font-variation-settings: "opsz" 96; }
+.font-serif-display { font-family: 'Manrope', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; }
 .font-sans-body { font-family: 'Inter', system-ui, sans-serif; }
 .font-mono-label { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
@@ -88,27 +91,25 @@ body {
 
 /* Headline base */
 .nr-h1 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 400;
-    font-variation-settings: "opsz" 144;
-    letter-spacing: -0.015em;
-    color: var(--nr-navy);
-    line-height: 1.02;
-}
-.nr-h2 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 400;
-    font-variation-settings: "opsz" 120;
-    letter-spacing: -0.012em;
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.028em;
     color: var(--nr-navy);
     line-height: 1.05;
 }
-.nr-h3 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 500;
+.nr-h2 {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.024em;
     color: var(--nr-navy);
-    letter-spacing: -0.005em;
-    line-height: 1.15;
+    line-height: 1.08;
+}
+.nr-h3 {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--nr-navy);
+    letter-spacing: -0.012em;
+    line-height: 1.18;
 }
 .nr-body {
     font-family: 'Inter', sans-serif;
@@ -296,7 +297,7 @@ body {
     background: linear-gradient(90deg, var(--nr-rust) 0%, var(--nr-rust-soft) 40%, var(--nr-leaf) 100%);
 }
 
-/* Solutions / Value cards hover reveal */
+/* Solutions / Value cards — always-visible detail (professional presentation) */
 .nr-flip {
     position: relative;
     background:
@@ -304,27 +305,17 @@ body {
         var(--nr-paper-2);
     border-radius: 20px;
     border: 1px solid rgba(31, 56, 100, 0.10);
-    padding: 32px;
-    min-height: 260px;
+    padding: 28px;
+    min-height: 240px;
     overflow: hidden;
     transition: transform 380ms cubic-bezier(0.2,0.7,0.2,1), box-shadow 380ms ease, border-color 300ms ease;
-    cursor: pointer;
 }
 .nr-flip:hover {
     transform: translateY(-6px);
     box-shadow: 0 30px 60px -32px rgba(31, 56, 100, 0.35);
     border-color: rgba(31, 56, 100, 0.22);
 }
-.nr-flip .nr-flip-detail {
-    max-height: 0; opacity: 0;
-    transition: max-height 500ms ease, opacity 400ms ease, margin-top 400ms ease;
-    overflow: hidden;
-    margin-top: 0;
-}
-.nr-flip:hover .nr-flip-detail,
-.nr-flip.open .nr-flip-detail {
-    max-height: 260px; opacity: 1; margin-top: 14px;
-}
+.nr-flip-static { min-height: 220px; }
 
 /* News cards */
 .nr-news-card {
@@ -339,19 +330,56 @@ body {
 .nr-news-card:hover { transform: translateY(-6px); box-shadow: 0 26px 50px -28px rgba(31, 56, 100, 0.32); }
 
 /* Marquee */
-.nr-marquee { display: flex; overflow: hidden; mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%); }
-.nr-marquee-track { display: flex; gap: 72px; padding: 8px 0; animation: nr-scroll 32s linear infinite; }
+.nr-marquee {
+    display: flex;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.nr-marquee-track {
+    display: flex;
+    gap: 72px;
+    padding: 12px 0;
+    animation: nr-scroll 34s linear infinite;
+    will-change: transform;
+    width: max-content;
+}
 @keyframes nr-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+.nr-marquee:hover .nr-marquee-track { animation-play-state: paused; }
+.nr-partner-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 84px;
+    width: 220px;
+    border-radius: 14px;
+    padding: 14px 22px;
+    border: 1px solid rgba(31, 56, 100, 0.08);
+    transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+.nr-partner-chip-light { background: #FFFFFF; }
+.nr-partner-chip-dark { background: #0F1B2E; border-color: rgba(252, 251, 247, 0.10); }
+.nr-partner-chip:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 34px -22px rgba(31, 56, 100, 0.32);
+    border-color: rgba(31, 56, 100, 0.18);
 }
 .nr-partner-logo {
-    height: 34px; width: auto;
+    max-height: 48px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     filter: grayscale(1) contrast(0.95);
-    opacity: 0.72;
-    transition: filter 300ms ease, opacity 300ms ease, transform 300ms ease;
+    opacity: 0.75;
+    transition: filter 300ms ease, opacity 300ms ease;
+    display: block;
 }
-.nr-partner-logo:hover { filter: none; opacity: 1; transform: translateY(-2px); }
+.nr-partner-chip:hover .nr-partner-logo { filter: none; opacity: 1; }
 
 /* Utility: numeric stat glyph */
 .nr-stat-num {

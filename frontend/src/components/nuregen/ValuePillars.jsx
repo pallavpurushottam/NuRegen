@@ -25,7 +25,7 @@ export default function ValuePillars() {
 
                 <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {PILLARS.map((p, i) => (
-                        <div key={p.title} className={`nr-flip reveal delay-${(i % 5) + 1}`} tabIndex={0} style={p.accent === 'leaf' ? { borderColor: 'rgba(92,166,50,0.35)' } : undefined}>
+                        <div key={p.title} className={`nr-flip nr-flip-static reveal delay-${(i % 5) + 1}`} tabIndex={0} style={p.accent === 'leaf' ? { borderColor: 'rgba(92,166,50,0.35)' } : undefined}>
                             <div className="flex items-center justify-between">
                                 <div
                                     className="font-serif-display text-3xl"
@@ -40,16 +40,13 @@ export default function ValuePillars() {
                             </div>
                             <h3
                                 className="mt-8 font-serif-display"
-                                style={{ color: 'var(--nr-navy)', fontSize: '22px', fontWeight: 500, lineHeight: 1.2 }}
+                                style={{ color: 'var(--nr-navy)', fontSize: '20px', fontWeight: 600, lineHeight: 1.25 }}
                             >
                                 {p.title}
                             </h3>
-                            <div className="nr-flip-detail">
-                                <p className="nr-body" style={{ fontSize: '14px' }}>{p.detail}</p>
-                            </div>
-                            <div className="mt-6 font-mono-label text-[10.5px] tracking-[0.22em] uppercase inline-flex items-center gap-2" style={{ color: 'var(--nr-rust)' }}>
-                                Hover to expand <span aria-hidden>→</span>
-                            </div>
+                            <p className="nr-body mt-3" style={{ fontSize: '13.5px', lineHeight: 1.6 }}>
+                                {p.detail}
+                            </p>
                         </div>
                     ))}
                 </div>

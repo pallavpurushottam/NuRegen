@@ -15,7 +15,7 @@ export default function WhoWeAre() {
                     </div>
                     <blockquote
                         className="nr-h2 reveal delay-1"
-                        style={{ fontSize: 'clamp(32px, 4.2vw, 52px)' }}
+                        style={{ fontSize: 'clamp(28px, 3.4vw, 44px)' }}
                     >
                         <span aria-hidden style={{ color: 'var(--nr-rust)' }}>“</span>
                         Climate impact begins where{' '}

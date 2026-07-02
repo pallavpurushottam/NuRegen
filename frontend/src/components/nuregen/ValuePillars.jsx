@@ -17,7 +17,7 @@ export default function ValuePillars() {
                     <div className="nr-section-eyebrow-row reveal">
                         <span className="nr-eyebrow">Value Pillars</span>
                     </div>
-                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(30px, 4vw, 48px)' }}>
+                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(24px, 2.8vw, 36px)' }}>
                         Six principles behind every hectare we{' '}
                         <em style={{ fontStyle: 'italic', color: 'var(--nr-leaf)' }}>certify</em>.
                     </h2>
@@ -25,7 +25,21 @@ export default function ValuePillars() {
 
                 <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {PILLARS.map((p, i) => (
-                        <div key={p.title} className={`nr-flip reveal delay-${(i % 5) + 1}`} tabIndex={0} style={p.accent === 'leaf' ? { borderColor: 'rgba(92,166,50,0.35)' } : undefined}>
+                        <div
+                            key={p.title}
+                            className={`nr-flip reveal delay-${(i % 5) + 1}`}
+                            tabIndex={0}
+                            role="button"
+                            aria-expanded="false"
+                            onClick={(e) => e.currentTarget.classList.toggle('open')}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    e.currentTarget.classList.toggle('open');
+                                }
+                            }}
+                            style={p.accent === 'leaf' ? { borderColor: 'rgba(92,166,50,0.35)' } : undefined}
+                        >
                             <div className="flex items-center justify-between">
                                 <div
                                     className="font-serif-display text-3xl"

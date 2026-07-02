@@ -35,7 +35,7 @@ export default function OurProcess() {
                     <div className="nr-section-eyebrow-row reveal">
                         <span className="nr-eyebrow">Our Process</span>
                     </div>
-                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(30px, 4vw, 48px)' }}>
+                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(24px, 2.8vw, 36px)' }}>
                         From baseline to verified{' '}
                         <em style={{ fontStyle: 'italic', color: 'var(--nr-leaf)' }}>climate outcomes</em>.
                     </h2>

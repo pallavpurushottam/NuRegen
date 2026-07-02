@@ -14,7 +14,7 @@ export default function MissionVideo() {
                         <div className="nr-section-eyebrow-row reveal">
                             <span className="nr-eyebrow">Mission Video</span>
                         </div>
-                        <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(28px, 3.8vw, 44px)' }}>
+                        <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(22px, 2.6vw, 32px)' }}>
                             Inside a NuRegen{' '}
                             <em style={{ fontStyle: 'italic', color: 'var(--nr-leaf)' }}>partner field</em>.
                         </h2>

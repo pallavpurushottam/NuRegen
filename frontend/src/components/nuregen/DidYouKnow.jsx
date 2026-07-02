@@ -96,7 +96,7 @@ export default function DidYouKnow() {
                     type="button"
                     onClick={goToNews}
                     className="nr-h2 reveal delay-1 group inline-flex items-center gap-3 text-left"
-                    style={{ fontSize: 'clamp(28px, 3.6vw, 44px)' }}
+                    style={{ fontSize: 'clamp(24px, 2.8vw, 34px)' }}
                     data-testid="did-you-know-heading"
                 >
                     Did You Know?

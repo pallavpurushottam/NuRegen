@@ -39,7 +39,7 @@ export default function TechExpertise() {
                     <div className="nr-section-eyebrow-row reveal">
                         <span className="nr-eyebrow">Technology Expertise</span>
                     </div>
-                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(30px, 4vw, 48px)' }}>
+                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(24px, 2.8vw, 36px)' }}>
                         The measurement stack behind every{' '}
                         <em style={{ fontStyle: 'italic', color: 'var(--nr-leaf)' }}>
                             verifiable ton
@@ -50,7 +50,20 @@ export default function TechExpertise() {
 
                 <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {CARDS.map((c, i) => (
-                        <div key={c.title} className={`nr-flip reveal delay-${i + 1}`} tabIndex={0}>
+                        <div
+                            key={c.title}
+                            className={`nr-flip reveal delay-${i + 1}`}
+                            tabIndex={0}
+                            role="button"
+                            aria-expanded="false"
+                            onClick={(e) => e.currentTarget.classList.toggle('open')}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    e.currentTarget.classList.toggle('open');
+                                }
+                            }}
+                        >
                             <div className="flex items-center justify-between">
                                 <div className="font-serif-display text-3xl" style={{ color: 'var(--nr-navy)' }} aria-hidden>
                                     {c.icon}

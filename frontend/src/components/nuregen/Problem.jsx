@@ -95,7 +95,7 @@ export default function Problem() {
                     <div className="nr-section-eyebrow-row reveal">
                         <span className="nr-eyebrow nr-eyebrow-rust">The Problem</span>
                     </div>
-                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(30px, 4vw, 48px)' }}>
+                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(24px, 2.8vw, 36px)' }}>
                         The carbon market doesn’t have a{' '}
                         <em style={{ fontStyle: 'italic', color: 'var(--nr-rust)' }}>
                             measurement problem

@@ -7,7 +7,7 @@ export default function Hero() {
     };
 
     return (
-        <section id="top" data-testid={HERO.root} className="nr-hero">
+        <section id="hero-root" data-testid={HERO.root} className="nr-hero">
             {/* Living, warm/earthy gradient background — soil base with drifting rust/navy/leaf blobs */}
             <div className="nr-hero-canvas" aria-hidden>
                 <span className="nr-hero-blob b1" />

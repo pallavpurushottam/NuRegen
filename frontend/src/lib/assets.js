@@ -1,26 +1,36 @@
 // Central place for asset URLs used across the site.
-export const LOGO_LOCKUP =
-    'https://customer-assets.emergentagent.com/job_907ce83b-29c1-4426-b090-760863d52748/artifacts/9sdvrwrx_NuRegen%20Logo.PNG';
+//
+// IMPORTANT: These images are shipped from the site's own /public folder so
+// every visitor loads them from the same origin as the HTML. Do NOT swap in
+// external CDN URLs — cross-origin CDN propagation was the root cause of the
+// "some users see missing logos" bug.
+//
+// Files live under /app/frontend/public/logos/ and are served at /logos/*.
+const asset = (path) => `${process.env.PUBLIC_URL || ''}${path}`;
+
+export const LOGO_LOCKUP = asset('/logos/nuregen.png');
 
 export const PARTNERS = [
     {
         name: 'MittiLabs',
-        src: 'https://customer-assets.emergentagent.com/job_907ce83b-29c1-4426-b090-760863d52748/artifacts/o3ywmi5i_MittiLabs__Logo.jpg',
+        src: asset('/logos/mittilabs.jpg'),
         chip: 'light',
     },
     {
         name: 'String Bio',
-        src: 'https://customer-assets.emergentagent.com/job_907ce83b-29c1-4426-b090-760863d52748/artifacts/9x63w492_String%20bio.png',
+        src: asset('/logos/stringbio.png'),
         chip: 'dark',
     },
     {
         name: 'AgriCapture',
-        src: 'https://customer-assets.emergentagent.com/job_907ce83b-29c1-4426-b090-760863d52748/artifacts/3gybuxze_AC%20L.png',
+        src: asset('/logos/agricapture.png'),
         chip: 'light',
     },
 ];
 
-// Photo placeholders — high-quality Unsplash agriculture / nature imagery
+// Photo placeholders — high-quality Unsplash agriculture / nature imagery.
+// (These stay on Unsplash's global CDN which does not exhibit the per-user
+// propagation issue seen with the job-scoped customer-assets host.)
 export const PHOTOS = {
     whoWeAre:
         'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=1400&q=80',

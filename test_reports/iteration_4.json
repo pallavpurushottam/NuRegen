@@ -1,0 +1,32 @@
+{
+  "summary": "Hotfix verification — logo asset self-hosting. All 8 acceptance checks PASS. Assets served same-origin from /logos/*, no external CDN references in DOM, all images actually paint (naturalWidth > 0), marquee animates, nav icon-only crop renders on both desktop and mobile.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "detailed_results": {
+    "http_asset_checks": {
+      "/logos/nuregen.png": "200, image/png, content-length 282277 (matches expected)",
+      "/logos/mittilabs.jpg": "200, image/jpeg, content-length 48716 (matches expected)",
+      "/logos/stringbio.png": "200, image/png, content-length 13890 (matches expected)",
+      "/logos/agricapture.png": "200, image/png, content-length 8784 (matches expected)"
+    },
+    "nav_logo": "computed backgroundImage = url('https://carbon-markets-web.preview.emergentagent.com/logos/nuregen.png'); data-testid=nav-logo present; icon-only crop visible in both 1440x900 and 390x844 screenshots",
+    "footer_logo": "img src=/logos/nuregen.png, naturalWidth=764, naturalHeight=556 (loaded)",
+    "partner_logos": "6 imgs in section-partners (3 unique x 2 for marquee loop): mittilabs.jpg (nw=1360), stringbio.png (nw=384), agricapture.png (nw=576) — all painted",
+    "external_cdn_string": "document.documentElement.outerHTML.includes('customer-assets.emergentagent.com') === false",
+    "browser_fetch": "All 4 /logos/* URLs fetched via page.evaluate: ok=true, status=200, content-type starts with image/",
+    "marquee": "nr-marquee-track has animation 'nr-scroll 34s'; transform matrix translateX moved from -32.5px to -82.3px over 2s; first-child bbox delta = 49.8px (>5px threshold)"
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only test)", "frontend": "100%"},
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Logo asset self-hosting hotfix fully verified on live URL. All 4 static images serve from same origin, DOM references /logos/*, images render, no customer-assets.emergentagent.com in shipped bundle."
+}

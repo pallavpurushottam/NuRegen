@@ -28,20 +28,10 @@ export const PARTNERS = [
     },
 ];
 
-// Photo placeholders — high-quality Unsplash agriculture / nature imagery.
-// (These stay on Unsplash's global CDN which does not exhibit the per-user
-// propagation issue seen with the job-scoped customer-assets host.)
+// Photo assets — self-hosted for same-origin reliability.
 export const PHOTOS = {
-    whoWeAre:
-        'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=1400&q=80',
-    heroBg:
-        'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=80',
+    heroBg: asset('/photos/hero_field.jpg'),          // paddy field close-up
+    whoWeAre: asset('/photos/whoweare_farmer.jpg'),   // person in paddy field
     missionBg:
         'https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=2000&q=80',
-    news1:
-        'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
-    news2:
-        'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=1200&q=80',
-    news3:
-        'https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1200&q=80',
 };

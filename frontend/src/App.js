@@ -13,7 +13,6 @@ import OurProcess from '@/components/nuregen/OurProcess';
 import ValuePillars from '@/components/nuregen/ValuePillars';
 import MissionVideo from '@/components/nuregen/MissionVideo';
 import PartnerLogos from '@/components/nuregen/PartnerLogos';
-import News from '@/components/nuregen/News';
 import Footer from '@/components/nuregen/Footer';
 
 function usePageReveal() {
@@ -54,7 +53,6 @@ function Site() {
             <ValuePillars />
             <MissionVideo />
             <PartnerLogos />
-            <News />
             <Footer />
             <Toaster position="bottom-right" richColors />
         </div>

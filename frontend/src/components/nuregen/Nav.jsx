@@ -7,7 +7,6 @@ const LINKS = [
     { id: 'tech', label: 'Technology Expertise', testId: NAV.linkTech },
     { id: 'process', label: 'Our Process', testId: NAV.linkProcess },
     { id: 'clock', label: 'Carbon Clock', testId: NAV.linkClock },
-    { id: 'news', label: 'Insights/News', testId: NAV.linkNews },
     { id: 'about', label: 'About', testId: NAV.linkAbout },
 ];
 

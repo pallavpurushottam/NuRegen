@@ -56,31 +56,15 @@ export default function WhoWeAre() {
                         className="relative rounded-3xl overflow-hidden"
                         style={{
                             aspectRatio: '3 / 4',
-                            border: '1px solid rgba(31,56,100,0.14)',
-                            boxShadow: '0 40px 80px -50px rgba(31,56,100,0.4)',
+                            border: '1px solid rgba(11, 61, 46, 0.16)',
+                            boxShadow: '0 40px 80px -50px rgba(11, 61, 46, 0.4)',
                         }}
                     >
                         <img
                             src={PHOTOS.whoWeAre}
-                            alt="Regenerative field partner in Odisha"
+                            alt="NuRegen partner farmer in paddy field"
                             className="w-full h-full object-cover"
                         />
-                        <div
-                            className="absolute inset-0"
-                            style={{
-                                background:
-                                    'linear-gradient(180deg, transparent 55%, rgba(15,27,46,0.75) 100%)',
-                            }}
-                            aria-hidden
-                        />
-                        <div className="absolute bottom-6 left-6 right-6">
-                            <div className="font-mono-label text-[10.5px] tracking-[0.28em] uppercase" style={{ color: 'rgba(252,251,247,0.75)' }}>
-                                Field · Odisha
-                            </div>
-                            <div className="mt-2 font-serif-display" style={{ color: 'var(--nr-paper)', fontSize: '22px', fontWeight: 400 }}>
-                                Where science meets soil.
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

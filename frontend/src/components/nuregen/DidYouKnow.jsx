@@ -77,7 +77,7 @@ export default function DidYouKnow() {
     }, []);
 
     const goToNews = () => {
-        const el = document.getElementById('news');
+        const el = document.getElementById('problem');
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 

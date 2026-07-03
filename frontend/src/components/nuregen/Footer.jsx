@@ -20,9 +20,9 @@ const COLUMNS = [
     {
         title: 'Resources',
         links: [
-            { label: 'Insights', href: '#news' },
-            { label: 'News', href: '#news' },
             { label: 'Carbon Clock', href: '#clock' },
+            { label: 'Our Process', href: '#process' },
+            { label: 'Value Pillars', href: '#pillars' },
         ],
     },
     {

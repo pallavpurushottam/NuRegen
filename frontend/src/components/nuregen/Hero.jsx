@@ -1,4 +1,5 @@
 import { HERO } from '@/constants/testIds';
+import { PHOTOS } from '@/lib/assets';
 
 export default function Hero() {
     const go = (id) => {
@@ -7,19 +8,22 @@ export default function Hero() {
     };
 
     return (
-        <section id="hero-root" data-testid={HERO.root} className="nr-hero">
-            {/* Living, warm/earthy gradient background — soil base with drifting rust/navy/leaf blobs */}
-            <div className="nr-hero-canvas" aria-hidden>
-                <span className="nr-hero-blob b1" />
-                <span className="nr-hero-blob b2" />
-                <span className="nr-hero-blob b3" />
-                <span className="nr-hero-blob b4" />
-                <span className="nr-hero-blob b5" />
-            </div>
+        <section
+            id="hero-root"
+            data-testid={HERO.root}
+            className="nr-hero"
+            style={{ '--nr-hero-photo-url': `url(${PHOTOS.heroBg})` }}
+        >
+            {/* 1. Base rice/paddy field photo */}
+            <div className="nr-hero-photo" aria-hidden />
+            {/* 2. Live animated multi-color gradient overlay (Deep Forest / Logo Green / Amber / Logo Navy) */}
+            <div className="nr-hero-gradient" aria-hidden />
+            {/* 3. Legibility vignette */}
             <div className="nr-hero-vignette" aria-hidden />
+            {/* 4. Grain */}
             <div className="nr-hero-grain" aria-hidden />
 
-            <div className="nr-container relative z-10 px-4 sm:px-6 py-24">
+            <div className="nr-container relative z-10 px-4 sm:px-6 py-24" style={{ zIndex: 10 }}>
                 <div className="max-w-3xl">
                     <span
                         className="inline-flex items-center gap-3 nr-hero-pill px-4 py-2 rounded-full font-mono-label text-[11px] tracking-[0.22em] uppercase reveal in"
@@ -32,35 +36,30 @@ export default function Hero() {
                         Locally Innovated
                     </span>
 
+                    {/* Single-color headline on Warm Cream */}
                     <h1
                         className="nr-h1 mt-7 reveal delay-1 in"
                         style={{
-                            color: '#FCFBF7',
+                            color: '#F7F4EF',
                             fontFamily: "'Instrument Serif', 'Fraunces', Georgia, serif",
                             fontWeight: 400,
                             fontSize: 'clamp(42px, 6.6vw, 82px)',
                             lineHeight: 1.04,
                             letterSpacing: '-0.02em',
+                            textShadow: '0 2px 24px rgba(8, 41, 31, 0.5)',
                         }}
                     >
-                        Bridging Global{' '}
-                        <em style={{ fontStyle: 'italic', color: '#F4A97A', fontWeight: 400 }}>
-                            Carbon Markets
-                        </em>{' '}
-                        with Local{' '}
-                        <em style={{ fontStyle: 'italic', color: '#B8D8A0', fontWeight: 400 }}>
-                            Climate Solutions
-                        </em>
-                        <span style={{ color: '#F4A97A' }}>.</span>
+                        Bridging Global Carbon Markets with Local Climate Solutions.
                     </h1>
 
                     <p
                         className="mt-7 max-w-2xl reveal delay-2 in"
                         style={{
-                            color: 'rgba(252, 251, 247, 0.9)',
+                            color: 'rgba(247, 244, 239, 0.94)',
                             fontFamily: 'Inter, sans-serif',
                             fontSize: '17px',
                             lineHeight: 1.65,
+                            textShadow: '0 1px 12px rgba(8, 41, 31, 0.45)',
                         }}
                     >
                         NuRegen develops and implements science-based carbon projects
@@ -83,11 +82,11 @@ export default function Hero() {
 
                 <div
                     className="absolute bottom-10 right-6 hidden md:flex items-center gap-3 font-mono-label text-[11px] tracking-[0.24em] uppercase"
-                    style={{ color: 'rgba(252,251,247,0.75)' }}
+                    style={{ color: 'rgba(247, 244, 239, 0.8)' }}
                 >
                     <span
                         className="w-6 h-px"
-                        style={{ background: 'rgba(252,251,247,0.6)' }}
+                        style={{ background: 'rgba(247, 244, 239, 0.65)' }}
                     />
                     Scroll
                 </div>

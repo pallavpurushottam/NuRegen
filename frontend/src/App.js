@@ -11,8 +11,8 @@ import OurSolution from '@/components/nuregen/OurSolution';
 import TechExpertise from '@/components/nuregen/TechExpertise';
 import OurProcess from '@/components/nuregen/OurProcess';
 import ValuePillars from '@/components/nuregen/ValuePillars';
-import MissionVideo from '@/components/nuregen/MissionVideo';
 import PartnerLogos from '@/components/nuregen/PartnerLogos';
+import Gallery from '@/components/nuregen/Gallery';
 import Footer from '@/components/nuregen/Footer';
 
 function usePageReveal() {
@@ -51,8 +51,8 @@ function Site() {
             <TechExpertise />
             <OurProcess />
             <ValuePillars />
-            <MissionVideo />
             <PartnerLogos />
+            <Gallery />
             <Footer />
             <Toaster position="bottom-right" richColors />
         </div>

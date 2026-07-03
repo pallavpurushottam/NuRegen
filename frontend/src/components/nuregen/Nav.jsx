@@ -3,11 +3,12 @@ import { NAV } from '@/constants/testIds';
 import { LOGO_LOCKUP } from '@/lib/assets';
 
 const LINKS = [
-    { id: 'solution', label: 'Our Solution', testId: NAV.linkSolution },
-    { id: 'tech', label: 'Technology Expertise', testId: NAV.linkTech },
-    { id: 'process', label: 'Our Process', testId: NAV.linkProcess },
-    { id: 'clock', label: 'Carbon Clock', testId: NAV.linkClock },
-    { id: 'about', label: 'About', testId: NAV.linkAbout },
+    { id: 'solution', label: 'Our Solution',        testId: NAV.linkSolution },
+    { id: 'tech',     label: 'Technology Expertise', testId: NAV.linkTech },
+    { id: 'process',  label: 'Our Process',          testId: NAV.linkProcess },
+    { id: 'clock',    label: 'Carbon Clock',         testId: NAV.linkClock },
+    { id: 'gallery',  label: 'Gallery',              testId: NAV.linkGallery },
+    { id: 'about',    label: 'About',                testId: NAV.linkAbout },
 ];
 
 export default function Nav() {

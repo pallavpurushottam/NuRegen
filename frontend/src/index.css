@@ -287,6 +287,20 @@ em { font-style: italic; font-weight: 700; }
     transform: scale(1.02);
 }
 
+/* Base video layer — same treatment as the photo it replaces */
+.nr-hero-video {
+    position: absolute; inset: 0;
+    z-index: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(1.15) brightness(0.85);
+    transform: scale(1.02);
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+.nr-hero-video.ready { opacity: 1; }
+
 /* Live animated multi-color gradient overlay — drifts on ~16s ease-in-out loop */
 .nr-hero-gradient {
     position: absolute; inset: -8%;
@@ -556,6 +570,65 @@ em { font-style: italic; font-weight: 700; }
 
 /* Selection */
 ::selection { background: var(--nr-leaf); color: var(--nr-paper); }
+
+/* Who We Are — auto-crossfade image loop */
+.nr-wwa-crossfade { position: relative; }
+.nr-wwa-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 600ms ease-in-out;
+    pointer-events: none;
+}
+.nr-wwa-slide.is-active { opacity: 1; }
+
+/* Gallery — extendable responsive grid, hover-lift tiles */
+.nr-gallery-tile {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--nr-hairline);
+    background: var(--nr-paper-2);
+    transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+                box-shadow 380ms ease,
+                border-color 300ms ease;
+    margin: 0;
+    cursor: pointer;
+}
+.nr-gallery-tile img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.nr-gallery-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 50px -28px rgba(11, 61, 46, 0.30);
+    border-color: rgba(11, 61, 46, 0.20);
+}
+.nr-gallery-tile:hover img { transform: scale(1.04); }
+
+.nr-gallery-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    background:
+        repeating-linear-gradient(
+            135deg,
+            rgba(11, 61, 46, 0.04) 0 10px,
+            transparent 10px 20px
+        ),
+        var(--nr-paper-2);
+    cursor: default;
+}
+.nr-gallery-placeholder span {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nr-muted);
+}
+.nr-gallery-placeholder:hover { transform: none; box-shadow: none; }
 
 /* Shadcn base overrides */
 @layer base {

@@ -1,7 +1,20 @@
+import { useEffect, useState } from 'react';
 import { SECTIONS } from '@/constants/testIds';
-import { PHOTOS } from '@/lib/assets';
+import { WHO_WE_ARE_SLIDES } from '@/lib/assets';
+
+const HOLD_MS = 3000;
 
 export default function WhoWeAre() {
+    const [idx, setIdx] = useState(0);
+
+    useEffect(() => {
+        const t = setInterval(
+            () => setIdx((i) => (i + 1) % WHO_WE_ARE_SLIDES.length),
+            HOLD_MS,
+        );
+        return () => clearInterval(t);
+    }, []);
+
     return (
         <section
             id="about"
@@ -53,18 +66,24 @@ export default function WhoWeAre() {
 
                 <div className="relative reveal delay-2">
                     <div
-                        className="relative rounded-3xl overflow-hidden"
+                        className="nr-wwa-crossfade relative rounded-3xl overflow-hidden"
                         style={{
                             aspectRatio: '3 / 4',
                             border: '1px solid rgba(11, 61, 46, 0.16)',
                             boxShadow: '0 40px 80px -50px rgba(11, 61, 46, 0.4)',
                         }}
+                        aria-label="Rotating field imagery"
                     >
-                        <img
-                            src={PHOTOS.whoWeAre}
-                            alt="NuRegen partner farmer in paddy field"
-                            className="w-full h-full object-cover"
-                        />
+                        {WHO_WE_ARE_SLIDES.map((src, i) => (
+                            <img
+                                key={src + i}
+                                src={src}
+                                alt=""
+                                className={`nr-wwa-slide ${i === idx ? 'is-active' : ''}`}
+                                aria-hidden={i !== idx}
+                                data-testid={`whoweare-slide-${i}`}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ export const NAV = {
         linkTech: 'nav-link-tech',
         linkProcess: 'nav-link-process',
         linkClock: 'nav-link-clock',
-        linkNews: 'nav-link-news',
+        linkGallery: 'nav-link-gallery',
         linkAbout: 'nav-link-about',
         partnerBtn: 'nav-partner-btn',
 };
@@ -30,9 +30,8 @@ export const SECTIONS = {
         tech: 'section-tech',
         process: 'section-process',
         pillars: 'section-pillars',
-        mission: 'section-mission-video',
         partners: 'section-partners',
-        news: 'section-news',
+        gallery: 'section-gallery',
         footer: 'section-footer',
 };
 

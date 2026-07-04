@@ -30,7 +30,7 @@ const COLUMNS = [
         links: [
             { label: 'Partner With Us', href: '#footer' },
             { label: 'Contact', href: `mailto:${EMAIL}` },
-            { label: 'LinkedIn', href: 'https://www.linkedin.com', external: true },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/company/nuregen/', external: true },
         ],
     },
 ];

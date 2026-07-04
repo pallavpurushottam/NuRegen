@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { HERO } from '@/constants/testIds';
-import { PHOTOS, HERO_VIDEO_URL } from '@/lib/assets';
+import { HERO_VIDEO_URL, HERO_POSTER_URL } from '@/lib/assets';
 
 export default function Hero() {
     const videoRef = useRef(null);
@@ -41,9 +41,9 @@ export default function Hero() {
             id="hero-root"
             data-testid={HERO.root}
             className="nr-hero"
-            style={{ '--nr-hero-photo-url': `url(${PHOTOS.riceDetail})` }}
+            style={{ '--nr-hero-photo-url': `url(${HERO_POSTER_URL})` }}
         >
-            {/* 1a. Base layer — video if provided, otherwise the poster photo */}
+            {/* 1a. Base layer — video if provided, otherwise the video's own first-frame poster */}
             {HERO_VIDEO_URL ? (
                 <video
                     ref={videoRef}
@@ -51,11 +51,9 @@ export default function Hero() {
                     autoPlay
                     loop
                     muted
-                    defaultMuted
                     playsInline
-                    webkit-playsinline="true"
                     preload="auto"
-                    poster={PHOTOS.riceDetail}
+                    poster={HERO_POSTER_URL}
                     disablePictureInPicture
                     disableRemotePlayback
                     controls={false}

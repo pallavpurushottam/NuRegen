@@ -1,0 +1,16 @@
+{
+  "summary": "Iteration 11 frontend verification for hero poster→video swap fix. All 9 required checks pass: video attributes (autoplay/loop/muted/playsInline/preload=auto/controls=false), poster attr = /videos/hero_poster.jpg, poster fetch (200, image/jpeg, 29797 bytes in [20000,40000]), video fetch (200, video/mp4, 3,999,652 bytes = 3.81 MB under 10 MB), poster does NOT contain 'hero_field', both early (200 ms) and late (3 s) screenshots show consistent warm gold/paddy imagery (no visible jump), Amber Wash gradient overlay verified at 375/768/1440 (animationName='nr-hero-drift', duration='16s', rect exceeds viewport at all breakpoints, rect.left <= 0 and rect.right >= vw, H1 opacity=1, luminance=244, correct text), overlay does not clip H1, Hero CTA smooth-scroll to #pillars precise (final top = -0.2px, within ±5). Regression: /photos/gallery/*.jpg = 200, POST /api/contact = 200 with forward_to='info@nuregen.earth'.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Selector ambiguity for tests: multiple buttons share the .nr-btn-rust class (Nav 'Partner With Us' AND Hero CTA). Tests should always use data-testid (hero-watch-mission-btn) — noted for future test authors."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "One TEST_user contact POST record inserted via regression check.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Hero uses HERO_POSTER_URL (/videos/hero_poster.jpg, 30 KB) as the poster (first-frame extract). Video file /videos/hero.mp4 is now 3.81 MB (H.264 baseline, faststart). No visible swap on load. Amber Wash overlay .nr-hero-gradient uses inset -8% so bounding rect exceeds viewport (left ~-30/-61/-115, right >= viewport width at all 3 breakpoints tested). Hero CTA data-testid is 'hero-watch-mission-btn' — do NOT use 'button.nr-btn-rust' as it matches Nav button too. Contact form POST /api/contact returns 200 with forward_to='info@nuregen.earth'."
+}

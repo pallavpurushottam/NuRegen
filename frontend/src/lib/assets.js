@@ -24,8 +24,13 @@ export const PHOTOS = {
 };
 
 // Set this string when the hero video URL is ready. While empty, the hero
-// falls back to the poster image (PHOTOS.riceDetail) so nothing looks broken.
+// falls back to the poster image (HERO_POSTER_URL) so nothing looks broken.
 export const HERO_VIDEO_URL = asset('/videos/hero.mp4');
+
+// First-frame poster extracted from the video itself (via ffmpeg). Using the
+// video's own opening frame means there is NO visible swap when the video
+// loads — the poster IS the video's frame 0.
+export const HERO_POSTER_URL = asset('/videos/hero_poster.jpg');
 
 // Cross-fade rotation for Who We Are — extendable, just push more URLs.
 export const WHO_WE_ARE_SLIDES = [

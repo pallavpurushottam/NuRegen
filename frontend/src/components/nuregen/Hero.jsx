@@ -1,11 +1,40 @@
+import { useEffect, useRef } from 'react';
 import { HERO } from '@/constants/testIds';
 import { PHOTOS, HERO_VIDEO_URL } from '@/lib/assets';
 
 export default function Hero() {
+    const videoRef = useRef(null);
+
     const go = (id) => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
+
+    // Cross-device autoplay reliability: some browsers (iOS Safari, Android
+    // Chrome under Data-Saver, preview iframes) require an explicit
+    // .play() call after the video is attached. We also retry once the tab
+    // regains visibility, which handles the "background-tab paused" case.
+    useEffect(() => {
+        const v = videoRef.current;
+        if (!v) return;
+        const kick = () => {
+            const p = v.play();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+        };
+        // First attempt on mount and once metadata is ready
+        kick();
+        v.addEventListener('loadedmetadata', kick);
+        v.addEventListener('canplay', kick);
+        const onVisible = () => {
+            if (document.visibilityState === 'visible' && v.paused) kick();
+        };
+        document.addEventListener('visibilitychange', onVisible);
+        return () => {
+            v.removeEventListener('loadedmetadata', kick);
+            v.removeEventListener('canplay', kick);
+            document.removeEventListener('visibilitychange', onVisible);
+        };
+    }, []);
 
     return (
         <section
@@ -17,13 +46,19 @@ export default function Hero() {
             {/* 1a. Base layer — video if provided, otherwise the poster photo */}
             {HERO_VIDEO_URL ? (
                 <video
+                    ref={videoRef}
                     className="nr-hero-video"
                     autoPlay
                     loop
                     muted
+                    defaultMuted
                     playsInline
+                    webkit-playsinline="true"
                     preload="auto"
                     poster={PHOTOS.riceDetail}
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    controls={false}
                     aria-hidden="true"
                     data-testid="hero-video"
                 >
@@ -32,9 +67,9 @@ export default function Hero() {
             ) : (
                 <div className="nr-hero-photo" aria-hidden />
             )}
-            {/* 2. Live animated multi-color gradient overlay */}
+            {/* 2. Live animated multi-color gradient overlay (Amber Wash) */}
             <div className="nr-hero-gradient" aria-hidden />
-            {/* 3. Legibility vignette */}
+            {/* 3. Near-neutral legibility vignette */}
             <div className="nr-hero-vignette" aria-hidden />
             {/* 4. Grain */}
             <div className="nr-hero-grain" aria-hidden />

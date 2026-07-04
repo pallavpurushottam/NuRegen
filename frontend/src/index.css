@@ -294,20 +294,22 @@ em { font-style: italic; font-weight: 700; }
     width: 100%; height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: saturate(1.15) brightness(0.85);
+    filter: saturate(1.20) brightness(0.94) contrast(1.02);
     transform: scale(1.02);
 }
 
-/* Live animated multi-color gradient overlay — drifts on ~16s ease-in-out loop */
+/* Live animated multi-color gradient overlay — "Amber Wash" (warm, minimal green).
+   Amber + Terracotta + Logo Navy only; no Deep Forest / Logo Green in the drift
+   so the paddy video reads through clearly. Drifts on ~16s ease-in-out loop. */
 .nr-hero-gradient {
     position: absolute; inset: -8%;
     z-index: 1;
     background:
-        radial-gradient(60% 60% at 20% 30%, rgba(11, 61, 46, 0.62) 0%, rgba(11, 61, 46, 0) 60%),
-        radial-gradient(55% 55% at 80% 20%, rgba(232, 163, 61, 0.48) 0%, rgba(232, 163, 61, 0) 62%),
-        radial-gradient(60% 60% at 70% 80%, rgba(31, 56, 100, 0.55) 0%, rgba(31, 56, 100, 0) 62%),
-        radial-gradient(55% 55% at 20% 85%, rgba(92, 166, 50, 0.45) 0%, rgba(92, 166, 50, 0) 62%),
-        radial-gradient(50% 50% at 50% 50%, rgba(194, 112, 61, 0.35) 0%, rgba(194, 112, 61, 0) 65%);
+        radial-gradient(60% 60% at 20% 30%, rgba(232, 163, 61, 0.42) 0%, rgba(232, 163, 61, 0) 60%),
+        radial-gradient(55% 55% at 80% 20%, rgba(232, 163, 61, 0.38) 0%, rgba(232, 163, 61, 0) 62%),
+        radial-gradient(60% 60% at 70% 80%, rgba(31, 56, 100, 0.42) 0%, rgba(31, 56, 100, 0) 62%),
+        radial-gradient(55% 55% at 20% 85%, rgba(194, 112, 61, 0.36) 0%, rgba(194, 112, 61, 0) 62%),
+        radial-gradient(50% 50% at 50% 50%, rgba(232, 163, 61, 0.28) 0%, rgba(232, 163, 61, 0) 65%);
     background-size: 220% 220%, 200% 200%, 210% 210%, 200% 200%, 260% 260%;
     background-repeat: no-repeat;
     animation: nr-hero-drift 16s ease-in-out infinite;
@@ -329,13 +331,13 @@ em { font-style: italic; font-weight: 700; }
     }
 }
 
-/* Dark vignette underneath text for legibility */
+/* Legibility vignette — near-neutral dark (no green cast) so the video reads true */
 .nr-hero-vignette {
     position: absolute; inset: 0;
     z-index: 2;
     background:
-        linear-gradient(180deg, rgba(8, 41, 31, 0.35) 0%, rgba(8, 41, 31, 0.60) 100%),
-        linear-gradient(120deg, rgba(8, 41, 31, 0.35) 0%, rgba(8, 41, 31, 0) 55%);
+        linear-gradient(180deg, rgba(15, 15, 15, 0.20) 0%, rgba(15, 15, 15, 0.45) 100%),
+        linear-gradient(120deg, rgba(15, 15, 15, 0.22) 0%, rgba(15, 15, 15, 0) 55%);
     pointer-events: none;
 }
 

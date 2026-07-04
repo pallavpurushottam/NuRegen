@@ -646,6 +646,105 @@ em { font-style: italic; font-weight: 700; }
     pointer-events: none;
 }
 
+/* Lightbox — full viewport, backdrop click-close, ← / → nav, keyboard, swipe */
+.nr-lightbox {
+    position: fixed; inset: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex; align-items: center; justify-content: center;
+    padding: 4vh 6vw;
+    animation: nr-lb-in 240ms ease-out;
+    cursor: zoom-out;
+    -webkit-tap-highlight-color: transparent;
+}
+@keyframes nr-lb-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+.nr-lb-stage {
+    position: relative;
+    max-width: min(1200px, 88vw);
+    max-height: 86vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 0;
+    cursor: default;
+}
+.nr-lb-img {
+    max-width: 100%;
+    max-height: 82vh;
+    width: auto; height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
+    animation: nr-lb-scale 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@keyframes nr-lb-scale {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+}
+.nr-lb-cap {
+    margin-top: 14px;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--nr-paper);
+    background: rgba(11, 61, 46, 0.6);
+    border: 1px solid rgba(247, 244, 239, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.nr-lb-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 999px;
+    background: rgba(247, 244, 239, 0.10);
+    border: 1px solid rgba(247, 244, 239, 0.28);
+    color: var(--nr-paper);
+    font-size: 22px; line-height: 1;
+    cursor: pointer;
+    transition: background 200ms ease, transform 200ms ease;
+}
+.nr-lb-close:hover { background: rgba(247, 244, 239, 0.20); transform: scale(1.05); }
+.nr-lb-nav {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 999px;
+    background: rgba(247, 244, 239, 0.10);
+    border: 1px solid rgba(247, 244, 239, 0.24);
+    color: var(--nr-paper);
+    font-size: 28px; line-height: 1;
+    cursor: pointer;
+    transition: background 200ms ease, transform 200ms ease;
+    padding-bottom: 3px;
+}
+.nr-lb-nav:hover { background: rgba(247, 244, 239, 0.22); }
+.nr-lb-prev { left: 20px; }
+.nr-lb-next { right: 20px; }
+.nr-lb-counter {
+    position: absolute;
+    top: 24px; left: 24px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    color: rgba(247, 244, 239, 0.6);
+    text-transform: uppercase;
+}
+@media (max-width: 640px) {
+    .nr-lb-close { top: 12px; right: 12px; width: 40px; height: 40px; font-size: 20px; }
+    .nr-lb-nav { width: 40px; height: 40px; font-size: 24px; }
+    .nr-lb-prev { left: 8px; }
+    .nr-lb-next { right: 8px; }
+    .nr-lb-counter { top: 16px; left: 16px; }
+}
+
 /* Shadcn base overrides */
 @layer base {
     * { @apply border-border; }

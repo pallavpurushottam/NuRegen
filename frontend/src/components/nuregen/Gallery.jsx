@@ -1,7 +1,29 @@
+import { useCallback, useState } from 'react';
 import { SECTIONS } from '@/constants/testIds';
 import { GALLERY_GROUPS } from '@/lib/assets';
+import Lightbox from '@/components/nuregen/Lightbox';
 
 export default function Gallery() {
+    // { groupIdx, itemIdx } — null when closed
+    const [box, setBox] = useState(null);
+
+    const open  = (gi, i) => setBox({ gi, i });
+    const close = useCallback(() => setBox(null), []);
+    const prev = useCallback(() => {
+        setBox((b) => {
+            if (!b) return b;
+            const group = GALLERY_GROUPS[b.gi].items;
+            return { ...b, i: (b.i - 1 + group.length) % group.length };
+        });
+    }, []);
+    const next = useCallback(() => {
+        setBox((b) => {
+            if (!b) return b;
+            const group = GALLERY_GROUPS[b.gi].items;
+            return { ...b, i: (b.i + 1) % group.length };
+        });
+    }, []);
+
     return (
         <section
             id="gallery"
@@ -49,6 +71,16 @@ export default function Gallery() {
                                     className={`nr-gallery-tile reveal delay-${(i % 5) + 1}`}
                                     data-testid={`gallery-tile-${gi}-${i}`}
                                     title={tile.alt}
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-label={`Open ${tile.alt} in lightbox`}
+                                    onClick={() => open(gi, i)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            open(gi, i);
+                                        }
+                                    }}
                                 >
                                     <img src={tile.src} alt={tile.alt} loading="lazy" />
                                     <figcaption
@@ -64,6 +96,14 @@ export default function Gallery() {
                     </div>
                 ))}
             </div>
+
+            <Lightbox
+                items={box ? GALLERY_GROUPS[box.gi].items : []}
+                index={box ? box.i : null}
+                onClose={close}
+                onPrev={prev}
+                onNext={next}
+            />
         </section>
     );
 }

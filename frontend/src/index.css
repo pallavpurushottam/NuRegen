@@ -296,10 +296,7 @@ em { font-style: italic; font-weight: 700; }
     object-position: center;
     filter: saturate(1.15) brightness(0.85);
     transform: scale(1.02);
-    opacity: 0;
-    transition: opacity 500ms ease;
 }
-.nr-hero-video.ready { opacity: 1; }
 
 /* Live animated multi-color gradient overlay — drifts on ~16s ease-in-out loop */
 .nr-hero-gradient {

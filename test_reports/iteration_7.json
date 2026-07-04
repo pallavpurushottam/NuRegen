@@ -1,0 +1,14 @@
+{
+  "summary": "Iteration 7 hero video verification — all 10 target checks pass. <video data-testid=hero-video> renders inside #hero-root with autoplay/loop/muted/playsInline all true and controls=false; fallback .nr-hero-photo absent. <source src> is same-origin /videos/hero.mp4 type video/mp4. GET /videos/hero.mp4 -> 200 video/mp4 12210709 bytes. objectFit=cover, video z-index=0, rect covers viewport (1468.8x918 at 1440x900). Gradient overlay .nr-hero-gradient present with z-index=1 above video, animationName=nr-hero-drift, animationDuration=16s; background-position moved between t=0 and t=3.2s (7.99% 50% ... -> 66.81% 50% ...), confirming continuous animation. H1 text exact match with color rgb(247,244,239). Eyebrow pill visible. CTA 'Value Pillars of NuRegen' present (data-testid=hero-watch-mission-btn) and smooth-scroll to #pillars lands with 0px diff. Static assets /photos/hero_field.jpg, whoweare_farmer.jpg, sensor_paddy.jpg, /logos/nuregen.png all 200 image/*. POST /api/contact -> 200 with forward_to='info@nuregen.earth'.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "One contact record created via POST /api/contact (name=TEST_iter7).",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Hero <video> loads a 12.2MB /videos/hero.mp4 on initial navigation which can make page.goto with wait_until='load'/'networkidle' time out in headless Chromium. Use wait_until='domcontentloaded' and wait_for_selector on [data-testid=hero-video], or route.abort() the mp4 request during navigation and fetch it separately to verify. All hero elements, gradient animation, CTA scroll, static assets and /api/contact were verified green."
+}

@@ -25,7 +25,7 @@ export const PHOTOS = {
 
 // Set this string when the hero video URL is ready. While empty, the hero
 // falls back to the poster image (PHOTOS.riceDetail) so nothing looks broken.
-export const HERO_VIDEO_URL = '';
+export const HERO_VIDEO_URL = asset('/videos/hero.mp4');
 
 // Cross-fade rotation for Who We Are — extendable, just push more URLs.
 export const WHO_WE_ARE_SLIDES = [

@@ -1,16 +1,11 @@
-import { useEffect, useState } from 'react';
 import { HERO } from '@/constants/testIds';
 import { PHOTOS, HERO_VIDEO_URL } from '@/lib/assets';
 
 export default function Hero() {
-    const [videoReady, setVideoReady] = useState(false);
     const go = (id) => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
-
-    // Fade the <video> in only once it has data — poster shows in the meantime
-    useEffect(() => { setVideoReady(false); }, []);
 
     return (
         <section
@@ -22,14 +17,13 @@ export default function Hero() {
             {/* 1a. Base layer — video if provided, otherwise the poster photo */}
             {HERO_VIDEO_URL ? (
                 <video
-                    className={`nr-hero-video ${videoReady ? 'ready' : ''}`}
+                    className="nr-hero-video"
                     autoPlay
                     loop
                     muted
                     playsInline
                     preload="auto"
                     poster={PHOTOS.riceDetail}
-                    onLoadedData={() => setVideoReady(true)}
                     aria-hidden="true"
                     data-testid="hero-video"
                 >

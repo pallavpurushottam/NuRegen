@@ -581,6 +581,21 @@ em { font-style: italic; font-weight: 700; }
 .nr-wwa-slide.is-active { opacity: 1; }
 
 /* Gallery — extendable responsive grid, hover-lift tiles */
+.nr-gallery-group {
+    margin-top: 44px;
+}
+.nr-gallery-group.nr-gallery-group--first {
+    margin-top: 40px;
+}
+.nr-gallery-subhead {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 6px;
+}
+.nr-gallery-subrule {
+    width: 20px; height: 1px;
+    background: var(--nr-rust);
+    display: inline-block;
+}
 .nr-gallery-tile {
     position: relative;
     aspect-ratio: 4 / 5;
@@ -607,25 +622,27 @@ em { font-style: italic; font-weight: 700; }
 }
 .nr-gallery-tile:hover img { transform: scale(1.04); }
 
-.nr-gallery-placeholder {
-    display: flex; align-items: center; justify-content: center;
-    background:
-        repeating-linear-gradient(
-            135deg,
-            rgba(11, 61, 46, 0.04) 0 10px,
-            transparent 10px 20px
-        ),
-        var(--nr-paper-2);
-    cursor: default;
-}
-.nr-gallery-placeholder span {
+/* Overlay caption pill — bottom-left, monospace, matches other pills */
+.nr-gallery-cap {
+    position: absolute;
+    left: 12px; bottom: 12px;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--nr-muted);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--nr-paper);
+    background: rgba(11, 61, 46, 0.72);
+    border: 1px solid rgba(247, 244, 239, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    max-width: calc(100% - 24px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
 }
-.nr-gallery-placeholder:hover { transform: none; box-shadow: none; }
 
 /* Shadcn base overrides */
 @layer base {

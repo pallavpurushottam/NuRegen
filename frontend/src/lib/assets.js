@@ -30,6 +30,7 @@ export const HERO_VIDEO_URL = asset('/videos/hero.mp4');
 // First-frame poster extracted from the video itself (via ffmpeg). Using the
 // video's own opening frame means there is NO visible swap when the video
 // loads — the poster IS the video's frame 0.
+
 export const HERO_POSTER_URL = asset('/videos/hero_poster.jpg');
 
 // Cross-fade rotation for Who We Are — extendable, just push more URLs.

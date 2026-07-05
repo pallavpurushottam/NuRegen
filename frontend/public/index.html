@@ -1,130 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
-    <meta name="theme-color" content="#000000" />
+<head>
+  <meta charset="utf-8" />
 
-    <meta
-      name="description"
-      content="NuRegen develops science-based carbon projects and climate solutions."
-    />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
-      rel="stylesheet"
-    />
+  <meta name="theme-color" content="#0B4F3A" />
 
-    <title>NuRegen</title>
+  <meta
+    name="description"
+    content="NuRegen develops science-based carbon projects through regenerative agriculture, MRV, ESG advisory, carbon markets, and nature-based climate solutions."
+  />
 
-    <script>
-      window.addEventListener(
-        "error",
-        function (e) {
-          if (
-            e.error instanceof DOMException &&
-            e.error.name === "DataCloneError" &&
-            e.message &&
-            e.message.includes("PerformanceServerTiming")
-          ) {
-            e.stopImmediatePropagation();
-            e.preventDefault();
+  <link rel="canonical" href="https://nuregen.earth/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Favicons -->
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="%PUBLIC_URL%/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="%PUBLIC_URL%/favicon-16x16.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="%PUBLIC_URL%/apple-touch-icon.png"
+  />
+  <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+
+  <title>
+    NuRegen | Carbon Markets, Regenerative Agriculture & Climate Solutions
+  </title>
+
+  <script>
+    window.addEventListener(
+      "error",
+      function (e) {
+        if (
+          e.error instanceof DOMException &&
+          e.error.name === "DataCloneError" &&
+          e.message &&
+          e.message.includes("PerformanceServerTiming")
+        ) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+      },
+      true
+    );
+  </script>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+
+  <div id="root"></div>
+
+  <script>
+    !(function (t, e) {
+      var o, n, p, r;
+      e.__SV ||
+        ((window.posthog = e),
+        (e._i = []),
+        (e.init = function (i, s, a) {
+          function g(t, e) {
+            var o = e.split(".");
+            2 == o.length && ((t = t[o[0]]), (e = o[1]));
+            t[e] = function () {
+              t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+            };
           }
-        },
-        true
-      );
-    </script>
-  </head>
 
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+          (p = t.createElement("script")).type = "text/javascript";
+          p.crossOrigin = "anonymous";
+          p.async = true;
+          p.src =
+            s.api_host.replace(
+              ".i.posthog.com",
+              "-assets.i.posthog.com"
+            ) + "/static/array.js";
 
-    <div id="root"></div>
+          (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+            p,
+            r
+          );
 
-    <script>
-      !(function (t, e) {
-        var o, n, p, r;
-        e.__SV ||
-          ((window.posthog = e),
-          (e._i = []),
-          (e.init = function (i, s, a) {
-            function g(t, e) {
-              var o = e.split(".");
-              2 == o.length && ((t = t[o[0]]), (e = o[1]));
-              t[e] = function () {
-                t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-              };
-            }
+          var u = e;
 
-            (p = t.createElement("script")).type = "text/javascript";
-            p.crossOrigin = "anonymous";
-            p.async = true;
-            p.src =
-              s.api_host.replace(
-                ".i.posthog.com",
-                "-assets.i.posthog.com"
-              ) + "/static/array.js";
+          if (a !== undefined) {
+            u = e[a] = [];
+          } else {
+            a = "posthog";
+          }
 
-            (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
-              p,
-              r
+          u.people = u.people || [];
+
+          u.toString = function (t) {
+            var e = "posthog";
+            if ("posthog" !== a) e += "." + a;
+            if (!t) e += " (stub)";
+            return e;
+          };
+
+          u.people.toString = function () {
+            return u.toString(1) + ".people (stub)";
+          };
+
+          o =
+            "init capture identify alias people set_config reset register register_once unregister".split(
+              " "
             );
 
-            var u = e;
+          for (n = 0; n < o.length; n++) {
+            g(u, o[n]);
+          }
 
-            if (a !== undefined) {
-              u = e[a] = [];
-            } else {
-              a = "posthog";
-            }
+          e._i.push([i, s, a]);
+        }),
+        (e.__SV = 1));
+    })(document, window.posthog || []);
 
-            u.people = u.people || [];
-
-            u.toString = function (t) {
-              var e = "posthog";
-              if ("posthog" !== a) e += "." + a;
-              if (!t) e += " (stub)";
-              return e;
-            };
-
-            u.people.toString = function () {
-              return u.toString(1) + ".people (stub)";
-            };
-
-            o =
-              "init capture identify alias people set_config reset register register_once unregister".split(
-                " "
-              );
-
-            for (n = 0; n < o.length; n++) {
-              g(u, o[n]);
-            }
-
-            e._i.push([i, s, a]);
-          }),
-          (e.__SV = 1));
-      })(document, window.posthog || []);
-
-      posthog.init(
-        "phc_xAvL2Iq4tFmANRE7kzbKwaSqp1HJjN7x48s3vr0CMjs",
-        {
-          api_host: "https://us.i.posthog.com",
-          person_profiles: "identified_only",
-          session_recording: {
-            recordCrossOriginIframes: true,
-            capturePerformance: false,
-          },
-        }
-      );
-    </script>
-  </body>
+    posthog.init(
+      "phc_xAvL2Iq4tFmANRE7kzbKwaSqp1HJjN7x48s3vr0CMjs",
+      {
+        api_host: "https://us.i.posthog.com",
+        person_profiles: "identified_only",
+        session_recording: {
+          recordCrossOriginIframes: true,
+          capturePerformance: false,
+        },
+      }
+    );
+  </script>
+</body>
 </html>

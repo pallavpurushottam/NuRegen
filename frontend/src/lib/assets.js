@@ -61,8 +61,6 @@ export const GALLERY_GROUPS = [
             { src: g('demo-gundur.jpg'),         caption: 'Gundur, Karnataka',       alt: 'Field demonstration in Gundur, Karnataka' },
             { src: g('harvest-bargarh.jpg'),     caption: 'Bargarh, Odisha',         alt: 'Farmer field harvest day in Bargarh, Odisha' },
             { src: g('demo-hitnal.jpg'),         caption: 'Hitnal, Karnataka',       alt: 'Farmer field demonstration in Hitnal, Karnataka' },
-            { src: g('fieldday-kadlabalu.jpg'),  caption: 'Kadlabalu, Karnataka',    alt: 'Farmer field day in Kadlabalu, Karnataka' },
-            { src: g('data-kadaranahalli.jpg'),  caption: 'Kadaranahalli, Karnataka', alt: 'Farmer field data collection in Kadaranahalli, Karnataka' },
         ],
     },
     {

@@ -51,11 +51,6 @@ export const GALLERY_GROUPS = [
                 alt: 'Farmer group meeting in Bargarh, Odisha',
             },
             {
-                src: g('meeting-bargarh-2.jpg'),
-                caption: 'Bargarh, Odisha',
-                alt: 'Farmer group meeting in Bargarh, Odisha',
-            },
-            {
                 src: g('agronomy-karatagi.jpg'),
                 caption: 'Karatagi, Karnataka',
                 alt: 'Farmer group agronomy training in Karatagi, Karnataka',

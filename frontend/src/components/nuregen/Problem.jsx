@@ -93,7 +93,7 @@ export default function Problem() {
             <div className="nr-container grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-start">
                 <div>
                     <div className="nr-section-eyebrow-row reveal">
-                        <span className="nr-eyebrow nr-eyebrow-rust">The Problem</span>
+                        <span className="nr-eyebrow" style={{ color: '#8A4E28', fontSize: '13px' }}>The Problem</span>
                     </div>
                     <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(24px, 2.8vw, 36px)' }}>
                         The carbon market doesn’t have a{' '}

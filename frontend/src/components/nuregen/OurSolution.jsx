@@ -1,26 +1,28 @@
 import { SECTIONS } from '@/constants/testIds';
+import { Sprout, FlaskConical, Leaf, Users } from 'lucide-react';
+
 const CARDS = [
     {
         title: 'Nature-Based Climate Solutions',
-        icon: '🌱',
+        icon: Sprout,
         detail:
             'Regenerative agriculture, agroforestry, rice methane reduction, and sustainable land stewardship.',
     },
     {
         title: 'Scientific Carbon Measurement',
-        icon: '◎',
+        icon: FlaskConical,
         detail:
             'Direct field measurement of greenhouse gases, soil carbon, and biomass for high-integrity carbon quantification at scale.',
     },
     {
         title: 'Ecosystem Restoration',
-        icon: '❦',
+        icon: Leaf,
         detail:
-            'Biodiversity conservation, water stewardship, and resilient land management.',
+            'Water stewardship, resilient land management, and Biodiversity conservation.',
     },
     {
         title: 'Community-Centred Action',
-        icon: '◍',
+        icon: Users,
         detail:
             'Farmer aggregation, training, and shared benefits for regenerative agriculture.',
     },
@@ -46,45 +48,44 @@ export default function OurSolution() {
                     </h2>
                 </div>
                 <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {CARDS.map((c, i) => (
-                        <div
-                            key={c.title}
-                            className={`nr-flip reveal delay-${i + 1}`}
-                            tabIndex={0}
-                            role="button"
-                            aria-expanded="false"
-                            onClick={(e) => e.currentTarget.classList.toggle('open')}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter' || e.key === ' ') {
-                                    e.preventDefault();
-                                    e.currentTarget.classList.toggle('open');
-                                }
-                            }}
-                        >
-                            <div className="flex items-center justify-between">
-                                <div
-                                    className="font-serif-display text-3xl"
-                                    style={{ color: 'var(--nr-leaf)' }}
-                                    aria-hidden
-                                >
-                                    {c.icon}
-                                </div>
-                                <div className="font-mono-label text-[10px] tracking-[0.3em] uppercase" style={{ color: 'var(--nr-navy)', opacity: 0.55 }}>
-                                    0{i + 1}
-                                </div>
-                            </div>
-                            <h3
-                                className="mt-8 font-serif-display"
-                                style={{ color: 'var(--nr-navy)', fontSize: '20px', fontWeight: 600, lineHeight: 1.25 }}
+                    {CARDS.map((c, i) => {
+                        const Icon = c.icon;
+                        return (
+                            <div
+                                key={c.title}
+                                className={`nr-flip reveal delay-${i + 1}`}
+                                tabIndex={0}
+                                role="button"
+                                aria-expanded="false"
+                                onClick={(e) => e.currentTarget.classList.toggle('open')}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        e.currentTarget.classList.toggle('open');
+                                    }
+                                }}
                             >
-                                {c.title}
-                            </h3>
-                            <div className="nr-flip-detail">
-                                <p className="nr-body" style={{ fontSize: '13.5px', lineHeight: 1.6 }}>{c.detail}</p>
+                                <div className="flex items-center justify-between">
+                                    <div style={{ color: 'var(--nr-leaf)' }} aria-hidden>
+                                        <Icon size={30} strokeWidth={1.5} />
+                                    </div>
+                                    <div className="font-mono-label text-[10px] tracking-[0.3em] uppercase" style={{ color: 'var(--nr-navy)', opacity: 0.55 }}>
+                                        0{i + 1}
+                                    </div>
+                                </div>
+                                <h3
+                                    className="mt-8 font-serif-display"
+                                    style={{ color: 'var(--nr-navy)', fontSize: '20px', fontWeight: 600, lineHeight: 1.25 }}
+                                >
+                                    {c.title}
+                                </h3>
+                                <div className="nr-flip-detail">
+                                    <p className="nr-body" style={{ fontSize: '13.5px', lineHeight: 1.6 }}>{c.detail}</p>
+                                </div>
+                                <span className="nr-flip-arrow" aria-hidden>+</span>
                             </div>
-                            <span className="nr-flip-arrow" aria-hidden>+</span>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>

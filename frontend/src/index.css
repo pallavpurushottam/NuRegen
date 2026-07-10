@@ -302,19 +302,7 @@ em { font-style: italic; font-weight: 700; }
    Amber + Terracotta + Logo Navy only; no Deep Forest / Logo Green in the drift
    so the paddy video reads through clearly. Drifts on ~16s ease-in-out loop. */
 .nr-hero-gradient {
-    position: absolute; inset: -8%;
-    z-index: 1;
-    background:
-        radial-gradient(60% 60% at 20% 30%, rgba(232, 163, 61, 0.42) 0%, rgba(232, 163, 61, 0) 60%),
-        radial-gradient(55% 55% at 80% 20%, rgba(232, 163, 61, 0.38) 0%, rgba(232, 163, 61, 0) 62%),
-        radial-gradient(60% 60% at 70% 80%, rgba(31, 56, 100, 0.42) 0%, rgba(31, 56, 100, 0) 62%),
-        radial-gradient(55% 55% at 20% 85%, rgba(194, 112, 61, 0.36) 0%, rgba(194, 112, 61, 0) 62%),
-        radial-gradient(50% 50% at 50% 50%, rgba(232, 163, 61, 0.28) 0%, rgba(232, 163, 61, 0) 65%);
-    background-size: 220% 220%, 200% 200%, 210% 210%, 200% 200%, 260% 260%;
-    background-repeat: no-repeat;
-    animation: nr-hero-drift 16s ease-in-out infinite;
-    mix-blend-mode: normal;
-    pointer-events: none;
+    display: none;
 }
 @keyframes nr-hero-drift {
     0% {

@@ -1,8 +1,7 @@
 import { SECTIONS } from '@/constants/testIds';
-
 const CARDS = [
     {
-        title: 'Nature-Based Climate & Carbon',
+        title: 'Nature-Based Climate Solutions',
         icon: '🌱',
         detail:
             'Regenerative agriculture, agroforestry, rice methane reduction, and sustainable land stewardship.',
@@ -26,7 +25,6 @@ const CARDS = [
             'Farmer aggregation, training, and shared benefits for regenerative agriculture.',
     },
 ];
-
 export default function OurSolution() {
     return (
         <section
@@ -37,7 +35,7 @@ export default function OurSolution() {
             <div className="nr-container">
                 <div className="max-w-3xl">
                     <div className="nr-section-eyebrow-row reveal">
-                        <span className="nr-eyebrow">Our Solution</span>
+                        <span className="nr-eyebrow" style={{ color: '#8A4E28', fontSize: '13px' }}>Our Solution</span>
                     </div>
                     <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(24px, 2.8vw, 36px)' }}>
                         Transforming agricultural landscapes into{' '}
@@ -47,7 +45,6 @@ export default function OurSolution() {
                         .
                     </h2>
                 </div>
-
                 <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {CARDS.map((c, i) => (
                         <div

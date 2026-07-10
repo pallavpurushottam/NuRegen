@@ -1,15 +1,12 @@
 // Central place for asset URLs used across the site.
 // Self-hosted from /public — same-origin reliability across all users.
 const asset = (path) => `${process.env.PUBLIC_URL || ''}${path}`;
-
 export const LOGO_LOCKUP = asset('/logos/nuregen.png');
-
 export const PARTNERS = [
     { name: 'MittiLabs',   src: asset('/logos/mittilabs.jpg'),   chip: 'light' },
     { name: 'String Bio',  src: asset('/logos/stringbio.png'),   chip: 'dark'  },
     { name: 'AgriCapture', src: asset('/logos/agricapture.png'), chip: 'light' },
 ];
-
 // Site photo library.
 // riceDetail  = golden paddy close-up
 // farmer      = person standing in paddy field
@@ -22,29 +19,23 @@ export const PHOTOS = {
     heroBg:     asset('/photos/hero_field.jpg'),
     whoWeAre:   asset('/photos/whoweare_farmer.jpg'),
 };
-
 // Set this string when the hero video URL is ready. While empty, the hero
 // falls back to the poster image (HERO_POSTER_URL) so nothing looks broken.
 export const HERO_VIDEO_URL = asset('/videos/hero.mp4');
-
 // First-frame poster extracted from the video itself (via ffmpeg). Using the
 // video's own opening frame means there is NO visible swap when the video
 // loads — the poster IS the video's frame 0.
-
 export const HERO_POSTER_URL = asset('/videos/hero_poster.jpg');
-
 // Cross-fade rotation for Who We Are — extendable, just push more URLs.
 export const WHO_WE_ARE_SLIDES = [
     PHOTOS.riceDetail,
     PHOTOS.farmer,
     PHOTOS.sensor,
 ];
-
-// Gallery — three named clusters. Each entry keeps the full original filename
+// Gallery — two named clusters. Each entry keeps the full original filename
 // as `alt` (also used as the hover tooltip) and shows only the short place
 // caption as a tile overlay pill.
 const g = (name) => asset(`/photos/gallery/${name}`);
-
 export const GALLERY_GROUPS = [
     {
         title: 'Farmer Group: Training & Meetings',
@@ -69,6 +60,21 @@ export const GALLERY_GROUPS = [
                 caption: 'Karatagi, Karnataka',
                 alt: 'Farmer group agronomy training in Karatagi, Karnataka',
             },
+            {
+                src: g('meeting-koppal.jpg'),
+                caption: 'Koppal, Karnataka',
+                alt: 'Farmer meeting in Koppal, Karnataka',
+            },
+            {
+                src: g('meeting-ballooru.jpg'),
+                caption: 'Ballooru, Karnataka',
+                alt: 'Village meeting in Ballooru, Karnataka',
+            },
+            {
+                src: g('meeting-hebbalaguppe.jpg'),
+                caption: 'Hebbalaguppe, Karnataka',
+                alt: 'Farmer meeting in Hebbalaguppe, Karnataka',
+            },
         ],
     },
     {
@@ -84,11 +90,11 @@ export const GALLERY_GROUPS = [
                 caption: 'Hitnal, Karnataka',
                 alt: 'Farmer field demonstration in Hitnal, Karnataka',
             },
-        ],
-    },
-    {
-        title: 'Science & Monitoring',
-        items: [
+            {
+                src: g('demo-magudilu.jpg'),
+                caption: 'Magudilu, Karnataka',
+                alt: 'Field demonstration in Magudilu, Karnataka',
+            },
             {
                 src: g('mrv-bargarh.jpg'),
                 caption: 'Bargarh, Odisha',
@@ -107,6 +113,5 @@ export const GALLERY_GROUPS = [
         ],
     },
 ];
-
 // Legacy flat GALLERY export (kept so nothing else breaks)
 export const GALLERY = GALLERY_GROUPS.flatMap((g) => g.items);

@@ -15,11 +15,11 @@ const CARDS = [
             'Field-calibrated measurement of methane, nitrous oxide and soil organic carbon — anchored to peer-reviewed protocols.',
     },
     {
-        title: 'MRV Systems & Digital Platforms',
-        icon: Database,
-        detail:
-            'End-to-end measurement, reporting and verification tooling with traceable evidence, from farm to credit registry.',
-    },
+    title: 'MRV Systems & Digital Platforms',
+    icon: Database,
+    detail:
+        'Field measurements, remote sensing, and digital MRV pipelines that generate verifiable evidence.',
+},
     {
         title: 'Customised Agronomy',
         icon: Sprout,

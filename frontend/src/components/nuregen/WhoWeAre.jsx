@@ -46,22 +46,14 @@ export default function WhoWeAre() {
                         climate reporting.
                     </p>
                     <p className="nr-body mt-5 reveal delay-3" style={{ fontSize: '16px' }}>
-                        NuRegen integrates farmer trust, behaviour change, scientific
+                        NuRegen integrates farmers trust, behaviour change, scientific
                         measurement, and transparent verification into{' '}
                         <span style={{ color: 'var(--nr-leaf)', fontWeight: 500 }}>
                             one scalable platform
                         </span>{' '}
                         — transforming climate action into trusted, measurable, and
-                        investable carbon outcomes.
+                        investable carbon outcomes across India.
                     </p>
-
-                    <div className="mt-9 inline-flex items-center gap-3 px-4 py-2.5 rounded-full reveal delay-4"
-                         style={{ background: 'var(--nr-paper-2)', border: '1px solid rgba(31,56,100,0.14)' }}>
-                        <span aria-hidden style={{ color: 'var(--nr-leaf)' }}>◉</span>
-                        <span className="font-mono-label text-[11px] tracking-[0.22em] uppercase" style={{ color: 'var(--nr-navy)' }}>
-                            Based in Bhubaneswar, India
-                        </span>
-                    </div>
                 </div>
 
                 <div className="relative reveal delay-2">

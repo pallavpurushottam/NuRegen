@@ -522,12 +522,13 @@ em { font-style: italic; font-weight: 700; }
 
 /* Utility: numeric stat glyph */
 .nr-stat-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    font-size: clamp(56px, 6.4vw, 88px);
+    font-feature-settings: "tnum";
     color: var(--nr-navy);
-    letter-spacing: -0.02em;
+    font-family: "IBM Plex Mono", "Roboto Mono", monospace;
+    font-size: clamp(56px, 6.4vw, 88px);
     font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1;
 }
 

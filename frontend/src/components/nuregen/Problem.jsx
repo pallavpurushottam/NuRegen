@@ -27,7 +27,7 @@ function CarbonClock() {
                     className="font-mono-label text-[10px] tracking-[0.28em] uppercase"
                     style={{ color: 'rgba(252,251,247,0.55)' }}
                 >
-                    Live · tCO₂e
+                    Modelled Estimate · tCO₂e
                 </span>
             </div>
 

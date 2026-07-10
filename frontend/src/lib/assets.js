@@ -49,31 +49,64 @@ export const GALLERY_GROUPS = [
     {
         title: 'Farmer Group: Training & Meetings',
         items: [
-            { src: g('onboarding-thimmenahalli.jpg'), caption: 'Thimmenahalli, Karnataka', alt: 'Farmer onboarding in Thimmenahalli, Karnataka' },
-            { src: g('training-bargarh.jpg'),         caption: 'Bargarh, Odisha',          alt: 'Farmer group training in Bargarh, Odisha' },
-            { src: g('meeting-bargarh-1.jpg'),        caption: 'Bargarh, Odisha',          alt: 'Farmer group meeting in Bargarh, Odisha' },
-            { src: g('meeting-bargarh-2.jpg'),        caption: 'Bargarh, Odisha',          alt: 'Farmer group meeting in Bargarh, Odisha' },
-            { src: g('agronomy-karatagi.jpg'),        caption: 'Karatagi, Karnataka',      alt: 'Farmer group agronomy training in Karatagi, Karnataka' },
+            {
+                src: g('training-bargarh.jpg'),
+                caption: 'Bargarh, Odisha',
+                alt: 'Farmer group training in Bargarh, Odisha',
+            },
+            {
+                src: g('meeting-bargarh-1.jpg'),
+                caption: 'Bargarh, Odisha',
+                alt: 'Farmer group meeting in Bargarh, Odisha',
+            },
+            {
+                src: g('meeting-bargarh-2.jpg'),
+                caption: 'Bargarh, Odisha',
+                alt: 'Farmer group meeting in Bargarh, Odisha',
+            },
+            {
+                src: g('agronomy-karatagi.jpg'),
+                caption: 'Karatagi, Karnataka',
+                alt: 'Farmer group agronomy training in Karatagi, Karnataka',
+            },
         ],
     },
     {
         title: 'Farmer Field: Demonstrations & Data',
         items: [
-            { src: g('demo-gundur.jpg'),         caption: 'Gundur, Karnataka',       alt: 'Field demonstration in Gundur, Karnataka' },
-            { src: g('harvest-bargarh.jpg'),     caption: 'Bargarh, Odisha',         alt: 'Farmer field harvest day in Bargarh, Odisha' },
-            { src: g('demo-hitnal.jpg'),         caption: 'Hitnal, Karnataka',       alt: 'Farmer field demonstration in Hitnal, Karnataka' },
+            {
+                src: g('demo-gundur.jpg'),
+                caption: 'Gundur, Karnataka',
+                alt: 'Field demonstration in Gundur, Karnataka',
+            },
+            {
+                src: g('demo-hitnal.jpg'),
+                caption: 'Hitnal, Karnataka',
+                alt: 'Farmer field demonstration in Hitnal, Karnataka',
+            },
         ],
     },
     {
         title: 'Science & Monitoring',
         items: [
-            { src: g('mrv-bargarh.jpg'), caption: 'Bargarh, Odisha',    alt: 'Registering the plot in MRV in Bargarh, Odisha' },
-            { src: g('ghg-mysore.jpg'),  caption: 'Mysore, Karnataka',  alt: 'GHG Direct Measurement in Mysore, Karnataka' },
-            { src: g('awd-mysore.jpg'),  caption: 'Mysore, Karnataka',  alt: 'AWD pipe installed in Mysore, Karnataka' },
+            {
+                src: g('mrv-bargarh.jpg'),
+                caption: 'Bargarh, Odisha',
+                alt: 'Registering the plot in MRV in Bargarh, Odisha',
+            },
+            {
+                src: g('ghg-mysore.jpg'),
+                caption: 'Mysore, Karnataka',
+                alt: 'GHG Direct Measurement in Mysore, Karnataka',
+            },
+            {
+                src: g('awd-mysore.jpg'),
+                caption: 'Mysore, Karnataka',
+                alt: 'AWD pipe installed in Mysore, Karnataka',
+            },
         ],
     },
 ];
 
-// Legacy flat GALLERY export (kept so nothing else breaks); not used by the
-// grouped Gallery component but preserved for backward compatibility.
+// Legacy flat GALLERY export (kept so nothing else breaks)
 export const GALLERY = GALLERY_GROUPS.flatMap((g) => g.items);

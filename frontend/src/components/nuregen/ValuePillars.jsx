@@ -18,10 +18,10 @@ export default function ValuePillars() {
                     <div className="nr-section-eyebrow-row reveal">
                         <span className="nr-eyebrow">Value Pillars</span>
                     </div>
-                    <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(24px, 2.8vw, 36px)' }}>
-                        Six principles behind every hectare we{' '}
-                        <em style={{ fontStyle: 'italic', color: 'var(--nr-leaf)' }}>certify</em>.
-                    </h2>
+                   <h2 className="nr-h2 reveal delay-1" style={{ fontSize: 'clamp(24px, 2.8vw, 36px)' }}>
+    Six principles behind every{' '}
+    <em style={{ fontStyle: 'italic', color: 'var(--nr-leaf)' }}>hectare</em>.
+</h2>
                 </div>
                 <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {PILLARS.map((p, i) => {

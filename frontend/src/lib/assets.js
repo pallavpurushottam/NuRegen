@@ -21,7 +21,7 @@ export const PHOTOS = {
 };
 // Set this string when the hero video URL is ready. While empty, the hero
 // falls back to the poster image (HERO_POSTER_URL) so nothing looks broken.
-export const HERO_VIDEO_URL = asset('/videos/hero.mp4');
+export const HERO_VIDEO_URL = '/videos/Hero_BG.mp4';
 // First-frame poster extracted from the video itself (via ffmpeg). Using the
 // video's own opening frame means there is NO visible swap when the video
 // loads — the poster IS the video's frame 0.
